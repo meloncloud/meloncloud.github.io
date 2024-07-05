@@ -18,19 +18,19 @@ jobs:
           # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
           fetch-depth: 0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          # 选择要使用的 pnpm 版本
-          version: 8
-          # 使用 pnpm 安装依赖
-          run_install: true
+#      - name: Setup pnpm
+#        uses: pnpm/action-setup@v2
+#        with:
+#          # 选择要使用的 pnpm 版本
+#          version: 8
+#          # 使用 pnpm 安装依赖
+#          run_install: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           # 选择要使用的 node 版本
-          node-version: 20
+          node-version: 20.10.0
           # 缓存 pnpm 依赖
           cache: pnpm
 
@@ -49,4 +49,4 @@ jobs:
           build_dir: docs/.vuepress/dist
         env:
           # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VUEPRESS: ${{ secrets.GITHUB_TOKEN }}
